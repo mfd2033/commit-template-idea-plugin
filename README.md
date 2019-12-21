@@ -18,6 +18,10 @@ Install directly from the IDE plugin manager (File > Settings > Plugins > Browse
 
 ## Usage
 
+- 设置Git的base.exe文件路径
+
+![Commit-step1](static/commit-template-0.png)
+
 ![Commit-step1](static/commit-template-1.png)
 
 ![Commit-step2](static/commit-template-2.png)

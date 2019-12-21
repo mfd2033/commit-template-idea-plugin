@@ -22,7 +22,8 @@
     <depends>com.intellij.modules.vcs</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
+        <applicationService serviceImplementation="com.leroymerlin.commit.PersistentState"/>
+        <applicationConfigurable instance="com.leroymerlin.commit.CustomConfigurable"/>
     </extensions>
 
     <actions>

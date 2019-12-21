@@ -1,5 +1,7 @@
 package com.leroymerlin.commit;
 
+import com.intellij.openapi.components.ServiceManager;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
@@ -10,6 +12,7 @@ import java.util.stream.Collectors;
 class Command {
     private final File workingDirectory;
     private final String command;
+    private final PersistentState persistentState = ServiceManager.getService(PersistentState.class);
 
     Command(File workingDirectory, String command) {
         this.workingDirectory = workingDirectory;
@@ -43,7 +46,7 @@ class Command {
 
     Result execute() {
         try {
-            Process process = new ProcessBuilder("/bin/sh", "-c", this.command)
+            Process process = new ProcessBuilder(persistentState.getGitBashFilePath(), "-c", this.command)
                     .directory(workingDirectory)
                     .start();
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));

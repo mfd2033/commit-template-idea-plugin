@@ -54,7 +54,7 @@ public class CustomConfigurable extends Component implements Configurable {
     @Override
     public void apply() throws ConfigurationException {
         String gitBashFilePathText = this.bashFile.getText();
-        logger.log(Level.INFO, "bash.exe路径：" + gitBashFilePathText);
+        logger.info("bash.exe路径：" + gitBashFilePathText);
         persistentState.setGitBashFilePath(gitBashFilePathText);
     }
 

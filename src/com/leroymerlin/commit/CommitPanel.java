@@ -32,7 +32,7 @@ public class CommitPanel {
             return;
         }
         String gitUserEmail = gitUserEmailGetCmdResult.getOutput().get(0);
-        logger.log(Level.INFO, "Git用户邮箱：" + gitUserEmail);
+        logger.info("Git用户邮箱：" + gitUserEmail);
         String gitLogCmd = "git log --author=" + gitUserEmail + " --format=%s | grep -Eo '^[a-z]+(\\(.*\\)):.*$' | sed 's/^.*(\\(.*\\)):.*$/\\1/' | sort -n | uniq";
         Command.Result result = new Command(workingDirectory, gitLogCmd).execute();
         if (result.isSuccess()) {

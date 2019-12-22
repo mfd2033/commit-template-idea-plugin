@@ -35,7 +35,7 @@ public class PersistentState implements PersistentStateComponent<PersistentState
     @Override
     public void loadState(@NotNull final PersistentState pluginConfig) {
         String storedGitBashFilePath = pluginConfig.getGitBashFilePath();
-        logger.log(Level.INFO, "加载bash.exe路径：" + storedGitBashFilePath);
+        logger.info("加载bash.exe路径：" + storedGitBashFilePath);
         this.gitBashFilePath = storedGitBashFilePath;
     }
 

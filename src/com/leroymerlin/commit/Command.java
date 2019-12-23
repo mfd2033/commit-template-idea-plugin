@@ -1,15 +1,19 @@
 package com.leroymerlin.commit;
 
 import com.intellij.openapi.components.ServiceManager;
+import org.apache.commons.lang.StringUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 class Command {
+
+    private static final Logger logger = Logger.getLogger(Command.class.getName());
     private final File workingDirectory;
     private final String command;
     private final PersistentState persistentState = ServiceManager.getService(PersistentState.class);
@@ -46,7 +50,10 @@ class Command {
 
     Result execute() {
         try {
-            Process process = new ProcessBuilder(persistentState.getGitBashFilePath(), "-c", this.command)
+            String gitBashFilePath = persistentState.getGitBashFilePath();
+            String cmdHeader = StringUtils.isNotBlank(gitBashFilePath) ? gitBashFilePath : "/bin/sh";
+            logger.info("cmdHeader->" + cmdHeader + "\ncmd->" + this.command);
+            Process process = new ProcessBuilder(cmdHeader, "-c", this.command)
                     .directory(workingDirectory)
                     .start();
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));

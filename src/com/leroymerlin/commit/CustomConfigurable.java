@@ -11,7 +11,6 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -24,6 +23,7 @@ public class CustomConfigurable extends Component implements Configurable {
     private final PersistentState persistentState = ServiceManager.getService(PersistentState.class);
     private JPanel mainPanel;
     private TextFieldWithBrowseButton bashFile;
+    private boolean isInit = false;
 
     @Nls(capitalization = Nls.Capitalization.Title)
     @Override
@@ -34,6 +34,7 @@ public class CustomConfigurable extends Component implements Configurable {
     @Nullable
     @Override
     public JComponent createComponent() {
+        isInit = true;
         bashFile.setText(persistentState.getGitBashFilePath());
         bashFile.addBrowseFolderListener("Select bash.exe", "", null, new FileChooserDescriptor(true, false, false, false, false, false)
         {
@@ -58,4 +59,13 @@ public class CustomConfigurable extends Component implements Configurable {
         persistentState.setGitBashFilePath(gitBashFilePathText);
     }
 
+    @Override
+    public void reset() {
+        if (isInit) {
+            isInit = false;
+            return;
+        }
+        logger.info("call reset");
+        bashFile.setText("");
+    }
 }

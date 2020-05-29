@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>commit-template-idea-plugin</id>
     <name>Git Commit Template</name>
-    <version>1.2.1</version>
+    <version>1.2.2</version>
 
     <vendor email="damien.arrachequesne@gmail.com" />
 
@@ -34,5 +34,14 @@
             <add-to-group group-id="Vcs.MessageActionGroup" anchor="first"/>
         </action>
     </actions>
+
+    <change-notes>
+        <![CDATA[
+        <ul>
+            1.2.2
+            <li>Change类型为fix时，填充文本“问题原因：”和“解决方案：”</li>
+        </ul>
+        ]]>
+    </change-notes>
 
 </idea-plugin>

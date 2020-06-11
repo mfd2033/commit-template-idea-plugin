@@ -24,6 +24,7 @@ public class CommitPanel {
     private JTextArea longDescription;
     private JTextField closedIssues;
     private JTextArea breakingChanges;
+    private JLabel breakingChangesHelp;
 
     CommitPanel(Project project) {
         for (ChangeType type : ChangeType.values()) {
@@ -53,6 +54,8 @@ public class CommitPanel {
                 }
             }
         });
+        breakingChangesHelp.setToolTipText("重大变化，当前代码与上一个版本不兼容。" +
+                "<br>比如：<br>基础业务模型变更<br>公共模块的接口变更<br>添加过时标记（@Deprecated）");
     }
 
     JPanel getMainPanel() {

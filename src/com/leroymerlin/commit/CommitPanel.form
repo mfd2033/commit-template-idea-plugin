@@ -15,18 +15,18 @@
       </vspacer>
       <component id="8bb2e" class="javax.swing.JLabel">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Type of change"/>
+          <text value="类型"/>
         </properties>
       </component>
       <component id="b0ac4" class="javax.swing.JLabel">
         <constraints>
-          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Scope of this change"/>
+          <text value="范围"/>
         </properties>
       </component>
       <component id="549f7" class="javax.swing.JComboBox" binding="changeScope">
@@ -41,11 +41,11 @@
       </component>
       <component id="19a59" class="javax.swing.JLabel">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <horizontalTextPosition value="2"/>
-          <text value="Short description"/>
+          <text value="主题"/>
         </properties>
       </component>
       <component id="92216" class="javax.swing.JTextField" binding="shortDescription">
@@ -58,10 +58,10 @@
       </component>
       <component id="a5d3c" class="javax.swing.JLabel">
         <constraints>
-          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Long description"/>
+          <text value="描述"/>
         </properties>
       </component>
       <component id="32600" class="javax.swing.JTextArea" binding="longDescription">
@@ -76,7 +76,7 @@
       </component>
       <component id="83b17" class="javax.swing.JLabel">
         <constraints>
-          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="1" use-parent-layout="false"/>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="1" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="源码关键字"/>
@@ -100,10 +100,10 @@
       </component>
       <component id="c313a" class="javax.swing.JLabel">
         <constraints>
-          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Breaking changes"/>
+          <text value=" 重大变更"/>
         </properties>
       </component>
       <component id="15a33" class="javax.swing.JTextArea" binding="breakingChanges">

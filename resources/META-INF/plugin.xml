@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>commit-template-idea-plugin</id>
     <name>Git Commit Template</name>
-    <version>1.2.3</version>
+    <version>1.2.4</version>
 
     <vendor email="damien.arrachequesne@gmail.com" />
 
@@ -38,6 +38,11 @@
     <change-notes>
         <![CDATA[
         <ul>
+            1.2.4
+            <li>汉化录入项及类型列表。</li>
+            <li>删除“Closes”录入项。</li>
+            <li>添加“源码关键字”录入项。</li>
+            <br>
             1.2.3
             <li>添加Breaking Changes说明信息。</li>
             <br>

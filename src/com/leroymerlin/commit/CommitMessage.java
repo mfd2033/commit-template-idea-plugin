@@ -43,7 +43,7 @@ class CommitMessage {
             for (String closedIssue : closedIssues.split(",")) {
                 builder
                         .append(System.lineSeparator())
-                        .append("Closes ")
+                        .append("源码关键字：")
                         .append(closedIssue);
             }
         }

@@ -7,17 +7,15 @@ package com.leroymerlin.commit;
  */
 public enum ChangeType {
 
-    FEAT("Features", "A new feature"),
-    FIX("Bug Fixes", "A bug fix"),
-    DOCS("Documentation", "Documentation only changes"),
-    STYLE("Styles", "Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)"),
-    REFACTOR("Code Refactoring", "A code change that neither fixes a bug nor adds a feature"),
-    PERF("Performance Improvements", "A code change that improves performance"),
-    TEST("Tests", "Adding missing tests or correcting existing tests"),
-    BUILD("Builds", "Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)"),
-    CI("Continuous Integrations", "Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)"),
-    CHORE("Chores", "Other changes that don't modify src or test files"),
-    REVERT("Reverts", "Reverts a previous commit");
+    FEAT("Features", "新功能"),
+    FIX("Bug Fixes", "错误修复"),
+    DOCS("Documentation", "仅文档更改"),
+    STYLE("Styles", "不影响代码含义的更改（空白，格式，缺少分号等）"),
+    REFACTOR("Code Refactoring", "既不修正错误也不增加功能的代码更改"),
+    PERF("Performance Improvements", "改进性能的代码更改"),
+    TEST("Tests", "添加缺失或更正现有测试"),
+    BUILD("Builds", "构建系统相关文件修改，例如构建脚本相关"),
+    CHORE("Chores", "更改构建过程或辅助工具和库");
 
     public final String title;
     public final String description;

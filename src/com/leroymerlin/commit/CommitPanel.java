@@ -22,7 +22,7 @@ public class CommitPanel {
     private JComboBox changeScope;
     private JTextField shortDescription;
     private JTextArea longDescription;
-    private JTextField closedIssues;
+    private JTextArea sourceKeyword;
     private JTextArea breakingChanges;
     private JLabel breakingChangesHelp;
 
@@ -68,7 +68,7 @@ public class CommitPanel {
                 (String) changeScope.getSelectedItem(),
                 shortDescription.getText().trim(),
                 longDescription.getText().trim(),
-                closedIssues.getText().trim(),
+                sourceKeyword.getText().trim(),
                 breakingChanges.getText().trim()
         );
     }

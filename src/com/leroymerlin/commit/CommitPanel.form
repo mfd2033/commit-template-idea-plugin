@@ -147,7 +147,7 @@
             </constraints>
             <properties>
               <actionCommand value="test"/>
-              <text value="test - 添加缺失或更正现有测试"/>
+              <text value="test - 添加、删除或修正单元测试"/>
             </properties>
           </component>
           <component id="9b279" class="javax.swing.JRadioButton" binding="choreRadioButton">
@@ -157,25 +157,6 @@
             <properties>
               <actionCommand value="chore"/>
               <text value="chore - 其它类型，例如：更改构建过程或辅助工具和库"/>
-            </properties>
-          </component>
-          <component id="2ac27" class="javax.swing.JRadioButton" binding="fixRadioButton">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="1" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <actionCommand value="fix"/>
-              <selected value="false"/>
-              <text value="fix - 缺陷修复"/>
-            </properties>
-          </component>
-          <component id="7d0c5" class="javax.swing.JRadioButton" binding="refactorRadioButton">
-            <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="1" use-parent-layout="false"/>
-            </constraints>
-            <properties>
-              <actionCommand value="refactor"/>
-              <text value="refactor - 既不修正错误也不增加功能的代码更改"/>
             </properties>
           </component>
           <component id="48d9a" class="javax.swing.JRadioButton" binding="docsRadioButton">
@@ -193,7 +174,7 @@
             </constraints>
             <properties>
               <actionCommand value="style"/>
-              <text value="style - 不影响代码含义的更改（空白，格式，缺少分号等）"/>
+              <text value="style - 不影响代码含义的更改，例如删除空白，格式化代码"/>
             </properties>
           </component>
           <component id="1325a" class="javax.swing.JRadioButton" binding="perfRadioButton">
@@ -222,6 +203,25 @@
             <properties>
               <actionCommand value="revert"/>
               <text value="revert - 还原提交"/>
+            </properties>
+          </component>
+          <component id="2ac27" class="javax.swing.JRadioButton" binding="fixRadioButton">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="1" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <actionCommand value="fix"/>
+              <selected value="false"/>
+              <text value="fix - 缺陷修复"/>
+            </properties>
+          </component>
+          <component id="7d0c5" class="javax.swing.JRadioButton" binding="refactorRadioButton">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="1" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <actionCommand value="refactor"/>
+              <text value="refactor - 既不修复缺陷也不增加功能的代码更改"/>
             </properties>
           </component>
         </children>

@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>commit-template-idea-plugin</id>
     <name>Git Commit Template</name>
-    <version>1.2.4</version>
+    <version>1.2.5</version>
 
     <vendor email="damien.arrachequesne@gmail.com" />
 
@@ -38,6 +38,11 @@
     <change-notes>
         <![CDATA[
         <ul>
+            1.2.5
+            <li>新增类型：revert</li>
+            <li>“类型”的显示组件修改为单选按钮</li>
+            <li>“源码关键字”的显示组件修改为多行文本框</li>
+            <br>
             1.2.4
             <li>汉化录入项及类型列表。</li>
             <li>删除“Closes”录入项。</li>

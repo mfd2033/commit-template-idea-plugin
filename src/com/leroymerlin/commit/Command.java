@@ -8,12 +8,14 @@ import java.io.File;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 class Command {
 
     private static final Logger logger = Logger.getLogger(Command.class.getName());
+    private static final String DEFAULT_GIT_BASH_FILE_PATH = "/bin/sh";
     private final File workingDirectory;
     private final String command;
     private final PersistentState persistentState = ServiceManager.getService(PersistentState.class);
@@ -51,7 +53,8 @@ class Command {
     Result execute() {
         try {
             String gitBashFilePath = persistentState.getGitBashFilePath();
-            String cmdHeader = StringUtils.isNotBlank(gitBashFilePath) ? gitBashFilePath : "/bin/sh";
+            logger.info("git bash file path is " + gitBashFilePath);
+            String cmdHeader = StringUtils.isNotBlank(gitBashFilePath) ? gitBashFilePath : DEFAULT_GIT_BASH_FILE_PATH;
             logger.info("cmdHeader->" + cmdHeader + "\ncmd->" + this.command);
             Process process = new ProcessBuilder(cmdHeader, "-c", this.command)
                     .directory(workingDirectory)
@@ -66,6 +69,7 @@ class Command {
 
             return new Result(process.exitValue(), output);
         } catch (Exception e) {
+            logger.log(Level.SEVERE, "command execute error", e);
             return Result.ERROR;
         }
     }

@@ -39,6 +39,7 @@ public class CommitPanel {
         File workingDirectory = VfsUtil.virtualToIoFile(project.getBaseDir());
         Command.Result gitUserEmailGetCmdResult = new Command(workingDirectory, "git config user.email").execute();
         if (!gitUserEmailGetCmdResult.isSuccess()) {
+            logger.warning("failed to get git user email!");
             return;
         }
         String gitUserEmail = gitUserEmailGetCmdResult.getOutput().get(0);
@@ -46,6 +47,7 @@ public class CommitPanel {
         String gitLogCmd = "git log --author=" + gitUserEmail + " --format=%s | grep -Eo '^[a-z]+(\\(.*\\)):.*$' | sed 's/^.*(\\(.*\\)):.*$/\\1/' | sort -n | uniq";
         Command.Result result = new Command(workingDirectory, gitLogCmd).execute();
         if (result.isSuccess()) {
+            logger.info("get git change scope");
             result.getOutput().forEach(changeScope::addItem);
         }
         breakingChangesHelp.setToolTipText("重大更改，当前代码与上一个版本不兼容。" +

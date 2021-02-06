@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
 
 /**
@@ -16,7 +18,7 @@ import java.util.logging.Logger;
 public class CommitPanel {
 
     private static final Logger logger = Logger.getLogger(CustomConfigurable.class.getName());
-    private static final String LONG_DESCRIPTION_DEFAULT_CONTENT = "问题原因：\n解决方案：";
+    private static final Map<ChangeType, String> DEFAULT_LONG_DESCRIPTION_CONTENT_MAP;
     private JPanel mainPanel;
     private JComboBox changeScope;
     private JTextField shortDescription;
@@ -33,7 +35,14 @@ public class CommitPanel {
     private JRadioButton testRadioButton;
     private JRadioButton buildRadioButton;
     private JRadioButton choreRadioButton;
+    private JRadioButton revertRadioButton;
     private ButtonGroup changeTypeGroup;
+
+    static {
+        DEFAULT_LONG_DESCRIPTION_CONTENT_MAP = new HashMap<>();
+        DEFAULT_LONG_DESCRIPTION_CONTENT_MAP.put(ChangeType.FIX, "问题原因：\n解决方案：");
+        DEFAULT_LONG_DESCRIPTION_CONTENT_MAP.put(ChangeType.REVERT, "This reverts commit xxx");
+    }
 
     CommitPanel(Project project) {
         File workingDirectory = VfsUtil.virtualToIoFile(project.getBaseDir());
@@ -57,7 +66,7 @@ public class CommitPanel {
 
     private void initRadioButtonActionListener() {
         featRadioButton.addActionListener(getCommonRadioButtonActionListener(""));
-        fixRadioButton.addActionListener(getCommonRadioButtonActionListener(LONG_DESCRIPTION_DEFAULT_CONTENT));
+        fixRadioButton.addActionListener(getCommonRadioButtonActionListener(DEFAULT_LONG_DESCRIPTION_CONTENT_MAP.get(ChangeType.FIX)));
         docsRadioButton.addActionListener(getCommonRadioButtonActionListener(""));
         styleRadioButton.addActionListener(getCommonRadioButtonActionListener(""));
         refactorRadioButton.addActionListener(getCommonRadioButtonActionListener(""));
@@ -66,14 +75,35 @@ public class CommitPanel {
         perfRadioButton.addActionListener(getCommonRadioButtonActionListener(""));
         buildRadioButton.addActionListener(getCommonRadioButtonActionListener(""));
         choreRadioButton.addActionListener(getCommonRadioButtonActionListener(""));
+        revertRadioButton.addActionListener(getCommonRadioButtonActionListener(DEFAULT_LONG_DESCRIPTION_CONTENT_MAP.get(ChangeType.REVERT)));
     }
 
-    private ActionListener getCommonRadioButtonActionListener(final String description) {
+    private ActionListener getCommonRadioButtonActionListener(final String defaultDescriptionText) {
+        /*
+          如果defaultDescriptionText为空
+              如果描述内容为空，则return
+              如果描述内容不为空
+                  如果描述内容与默认值相同，则将描述内容设为空
+          如果defaultDescriptionText不为空
+              如果描述内容为空，则将描述内容设为defaultDescriptionText
+              如果描述内容不为空
+                  如果描述内容是类型描述的默认值，则将描述内容设为defaultDescriptionText
+         */
         return e -> {
-            if (!StringUtils.isEmpty(longDescription.getText()) && !LONG_DESCRIPTION_DEFAULT_CONTENT.equals(longDescription.getText())) {
+            if (StringUtils.isEmpty(defaultDescriptionText)) {
+                if (DEFAULT_LONG_DESCRIPTION_CONTENT_MAP.containsValue(longDescription.getText())) {
+                    longDescription.setText("");
+                    return;
+                }
                 return;
             }
-            longDescription.setText(description);
+            if (StringUtils.isEmpty(longDescription.getText())) {
+                longDescription.setText(defaultDescriptionText);
+                return;
+            }
+            if (DEFAULT_LONG_DESCRIPTION_CONTENT_MAP.containsValue(longDescription.getText())) {
+                longDescription.setText(defaultDescriptionText);
+            }
         };
     }
 

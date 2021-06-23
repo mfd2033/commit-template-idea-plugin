@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>commit-template-idea-plugin</id>
     <name>Git Commit Template</name>
-    <version>1.2.5</version>
+    <version>1.2.6</version>
 
     <vendor email="damien.arrachequesne@gmail.com" />
 
@@ -38,6 +38,9 @@
     <change-notes>
         <![CDATA[
         <ul>
+            1.2.6
+            <li>修改UI样式</li>
+            <br>
             1.2.5
             <li>新增类型：revert</li>
             <li>“类型”的显示组件修改为单选按钮</li>

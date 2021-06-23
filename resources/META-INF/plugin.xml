@@ -44,12 +44,12 @@
             <li>“源码关键字”的显示组件修改为多行文本框</li>
             <br>
             1.2.4
-            <li>汉化录入项及类型列表。</li>
-            <li>删除“Closes”录入项。</li>
-            <li>添加“源码关键字”录入项。</li>
+            <li>汉化录入项及类型列表</li>
+            <li>删除“Closes”录入项</li>
+            <li>添加“源码关键字”录入项</li>
             <br>
             1.2.3
-            <li>添加Breaking Changes说明信息。</li>
+            <li>添加Breaking Changes说明信息</li>
             <br>
             1.2.2
             <li>Change类型为fix时，填充文本“问题原因：”和“解决方案：”</li>
